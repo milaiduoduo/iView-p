@@ -37,10 +37,11 @@
         </Submenu>
       </Menu>
       </Col>
-      <!--选中1-2菜单，active-name="1-2"-->
-      <h2>选中1-2菜单，active-name="1-2"</h2>
+
       <Col span="8">
-      <Menu :theme="theme2" active-name="1-2" :open-names="['1']">
+      <h2>动态设置打开和选中的菜单。:active-name=activeName :open-names=openedNames。
+        在mounted里用$nextTick来更新</h2>
+      <Menu ref="menu2" :theme="theme2" :active-name=activeName :open-names=openedNames>
         <Submenu name="1">
           <template slot="title">
             <Icon type="ios-paper"></Icon>
@@ -127,8 +128,18 @@
   export default {
     data () {
       return {
-        theme2: 'dark'
+        theme2: 'dark',
+        activeName:'1-2',
+        openedNames:['1']
       }
+    },
+    mounted(){
+        this.activeName='2-1';
+        this.openedNames=['2'];
+        this.$nextTick(function () {
+          this.$refs.menu2.updateOpened();
+          this.$refs.menu2.updateActiveName();
+        })
     }
   }
 </script>
