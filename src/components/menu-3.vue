@@ -1,5 +1,5 @@
 <template>
-  <Menu active-name="1-2" :open-names="['1']">
+  <Menu active-name="1-2" :open-names="['1']" @on-open-change="openChange">
     <Submenu name="1">
       <template slot="title">
         <Icon type="ios-analytics"></Icon>
@@ -41,7 +41,11 @@
 </template>
 <script>
   export default {
-
+  methods: {
+    openChange(name){
+      alert(name instanceof Array);
+    }
+  }
   }
 </script>
 <style lang='scss' rel="stylesheet/scss">

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Menu mode="horizontal" :theme="theme1" active-name="1">
+    <Menu mode="horizontal" :theme="theme1" active-name="1" @on-select="onSelect" on-open-change="onOpenChange">
       <MenuItem name="1">
         <Icon type="ios-paper"></Icon>
         内容管理
@@ -45,6 +45,14 @@
     data () {
       return {
         theme1: 'dark'
+      }
+    },
+    methods: {
+      onSelect(name){
+//        alert(name);
+      },
+      onOpenChange(name){
+        alert(name);
       }
     }
   }

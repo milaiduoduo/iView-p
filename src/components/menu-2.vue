@@ -37,6 +37,8 @@
         </Submenu>
       </Menu>
       </Col>
+      <!--选中1-2菜单，active-name="1-2"-->
+      <h2>选中1-2菜单，active-name="1-2"</h2>
       <Col span="8">
       <Menu :theme="theme2" active-name="1-2" :open-names="['1']">
         <Submenu name="1">
@@ -74,6 +76,8 @@
       </Menu>
       </Col>
       <Col span="8">
+      <!--设置为手风琴模式，菜单互斥的展开-->
+      <h2>设置为手风琴模式，菜单互斥的展开.accordion</h2>
       <Menu :theme="theme2" :open-names="['1']" accordion>
         <Submenu name="1">
           <template slot="title">
